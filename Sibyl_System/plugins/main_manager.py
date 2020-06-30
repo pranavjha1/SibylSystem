@@ -56,7 +56,7 @@ async def scan(event):
             reason = event.text.split(" ", trim)[trim]
         executor = f'[{executer.first_name}](tg://user?id={executer.id})'
         chat = f"t.me/{event.chat.username}/{event.message.id}" if event.chat.username else f"Occurred in Private Chat - {event.chat.title}"
-        await event.reply("Connecting to Sibyl for a cymatic scan.")
+        await event.reply("Connecting to the API to send requests...")
         if req_proof and req_user:
           await replied.forward_to(Sibyl_logs)
           await System.gban(executer.id, req_user, reason, msg.id, executer)
@@ -71,9 +71,9 @@ async def revive(event):
    try:
      user_id = event.text.split(" ", 1)[1]
    except IndexError: return
-   a = await event.reply("Reverting bans..")
+   a = await event.reply("Reverting bans...")
    await System.ungban(user_id, f" By //{(await event.get_sender()).id}")
-   await a.edit("Revert request sent to sibyl. This might take 10minutes or so.")
+   await a.edit("Revert request sent to @FedbanRequestDumpingHub. This might take longer than usual.")
 
 
 @System.on(system_cmd(pattern=r'approve', allow_inspectors=True, force_reply = True))
@@ -137,23 +137,23 @@ async def reject(event):
                 await System.edit_message(Sibyl_logs, id, reject_string)
         orig = re.search(r"t.me/(\w+)/(\d+)", replied.text)
         if orig:
-          await System.send_message(orig.group(1),'Scan rejected.', reply_to=int(orig.group(2)))
+          await System.send_message(orig.group(1),'Request rejected.', reply_to=int(orig.group(2)))
 
 help_plus = """
 Here is the help for **Main**:
 
-`scan` - Reply to a message WITH reason to send a request to Sibyl for judgement
-`approve` - Approve a scan request (Only works in Public Safety Bureau)
-`revert or revive or restore` - Ungban ID
-`qproof` - Get quick proof from database for given user id
-`proof` - Get message from proof id which is at the end of gban msg
-`reject` - Reject a scan request
+`scan` - Reply to a message WITH reason to send a request to the fed staff for judgement
+`approve` - Approve a scan request (Only works in @FedbanRequestDumpingHub)
+`revert or revive or restore` - Undo an FedBan against an ID
+`qproof` - Get quick proof from API database for given user id
+`proof` - Get message from proof id which is at the end of gban log msg
+`reject` - Reject a ban request
 
 **Notes:**
 `/` `?` `.`are supported prefixes.
 **Example:** `/addenf` or `?addenf` or `.addenf`
-Adding `-f` to a scan will force an approval. (Sibyl Only)
-**Note 2:** adding `-o` will gban & fban the original sender, If using both approve and original sender flag the "-f" flag must come first!
+Adding `-f` to a scan will force an approval. (Fed Inspectors and Staff Only)
+**Note 2:** adding `-o` will fban the original sender, If using both approve and original sender flag the "-f" flag must come first!
 **Example:** `/scan -f bitcoin spammer`
 **Example 2:** `!scan -f -o owo`
 Also see "?help extras" for extended functions.

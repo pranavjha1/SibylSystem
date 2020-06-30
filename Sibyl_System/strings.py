@@ -1,7 +1,7 @@
 on_string = """
 **Portable Psychological Diagnosis and Supression System**
-Connection successful.
-`Dominator` is now active. 
+
+Connection successful to the database of `retarded-cases-api.herokuapp.com` and is now active. 
 Cymatic scans are now possible!
 """
 
@@ -11,7 +11,7 @@ scan_request_string = """
 $SCAN
 Cymatic Scan request
 **Enforcer:** {enforcer} 
-**User scanned:** {spammer}
+**User scanned:** `{spammer}`
 **Scan Reason:** `{reason}`
 **Chat Originated from:** {chat}
 **Target Message:** `{message}`
@@ -19,7 +19,7 @@ Cymatic Scan request
 forced_scan_string = """
 $FORCED
 **Inspector:** {ins}
-**User scanned:** {spammer}
+**User scanned:** `{spammer}`
 **Scan Reason:** `{reason}`
 **Chat Originated from:** {chat}
 **Target Message:** `{message}`
@@ -42,7 +42,7 @@ proof_string = """
 
 scan_approved_string = """
 #LethalEliminator
-**Target User:** {scam}
+**Target User:** `{scam}`
 **Crime Coefficient:** `Over 300`
 **Reason:** `{reason}`
 **Enforcer:** `{enforcer}`
@@ -52,7 +52,7 @@ scan_approved_string = """
 bot_gban_string = """
 #DestroyDecomposer
 **Enforcer:** `{enforcer}`
-**Target User:** {scam}
+**Target User:** `{scam}`
 **Reason:** `{reason}`
 """
 

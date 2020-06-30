@@ -29,15 +29,15 @@ async def addenf(event) -> None:
         try:
            u_id = (await System.get_entity(u_id)).id
         except BaseException:
-           await event.reply("I haven't interacted with that user! Meh, Will add them anyway")
+           await event.reply("No U, I haven't interacted with that user!")
     if u_id in ENFORCERS:
-        await System.send_message(event.chat_id, 'That person is already Enforcer!')
+        await System.send_message(event.chat_id, 'That person is already an Enforcer/Fed Admins!')
         return
     if HEROKU:
         config['ENFORCERS'] = os.environ.get('ENFORCERS') + ' ' + str(u_id)
     else:
         ENFORCERS.append(u_id)
-    await System.send_message(event.chat_id, f'Added [{u_id}](tg://user?id={u_id}) to Enforcers')
+    await System.send_message(event.chat_id, f'Added [{u_id}](tg://user?id={u_id}) to Enforcers/Fed Admins')
 
 
 @System.on(system_cmd(pattern=r'rmenf', allow_inspectors = True))
@@ -52,7 +52,7 @@ async def rmenf(event) -> None:
     except BaseException:
         await event.reply('Invalid ID/Username!')
     if u_id not in ENFORCERS:
-        await System.send_message(event.chat_id, 'Is that person even a Enforcer?')
+        await System.send_message(event.chat_id, 'Is that person even a Enforcer/Fed Admin?')
         return
     if HEROKU:
         ENF = os.environ.get('ENFORCERS')
@@ -64,7 +64,7 @@ async def rmenf(event) -> None:
          config['ENFORCERS'] = ENF.strip(' ' + str(u_id) + ' ')   
     else:
         ENFORCERS.remove(u_id)
-    await System.send_message(event.chat_id, f'Removed [{u_id}](tg://user?id={u_id}) from Enforcers')
+    await System.send_message(event.chat_id, f'Removed [{u_id}](tg://user?id={u_id}) from Enforcers/Fed Admins')
 
 
 
@@ -111,7 +111,7 @@ async def addins(event) -> None:
         await event.reply('Ivalid ID/Username!')
         return
     if u_id in INSPECTORS:
-        await System.send_message(event.chat_id, 'That person is already an Inspector!')
+        await System.send_message(event.chat_id, 'That person is already an Inspector/Fed Inspector!')
         return
     if HEROKU:
         config['INSPECTORS'] = os.environ.get('INSPECTORS') + ' ' + str(u_id)

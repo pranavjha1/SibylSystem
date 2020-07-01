@@ -1,60 +1,58 @@
 on_string = """
-**Portable Psychological Diagnosis and Supression System**
-
-Connection successful to the database of `retarded-cases-api.herokuapp.com` and is now active. 
-Cymatic scans are now possible!
+**Retarded Cases Watcher Status**
+**Status**: ✅ Successfully connected to the server!
+**Description**: You can send ban requests to the dumps. 
 """
 
 # Make sure not to change these too much
 # If you still wanna change it change the regex too
 scan_request_string = """
-$SCAN
-Cymatic Scan request
-**Enforcer:** {enforcer} 
+**Ban request received**
+**Enforcer:** `{enforcer}` 
 **User scanned:** `{spammer}`
-**Scan Reason:** `{reason}`
+**Request Reason:** `{reason}`
 **Chat Originated from:** {chat}
 **Target Message:** `{message}`
+$SCAN
 """
 forced_scan_string = """
-$FORCED
+**Forced ban request received**
 **Inspector:** {ins}
 **User scanned:** `{spammer}`
-**Scan Reason:** `{reason}`
+**Request Reason:** `{reason}`
 **Chat Originated from:** {chat}
 **Target Message:** `{message}`
+$FORCED
 """
 
 reject_string = """
-$REJECTED
+**Request rejected**
 **Crime Coefficient:** `Under 100`
-
-Not a target for enforcement action. 
-The trigger will be locked.
+**Reason**: No enforcement action will take effect and the trigger's lock was applied.
+$REJECTED
 """
 
 proof_string = """
-**Case file for** - {proof_id} :
+**Retarded Case file for** - {proof_id} :
 ┣━**Reason**: {reason}
 ┗━**Message**
          ┣━[Nekobin]({paste})
          ┗━[DelDog]({url})"""
 
 scan_approved_string = """
-#LethalEliminator
+**Request approval**
 **Target User:** `{scam}`
 **Crime Coefficient:** `Over 300`
 **Reason:** `{reason}`
-**Enforcer:** `{enforcer}`
-**Case Number:** `{proof_id}`
+**FedAdmin:** `{enforcer}`
+**Retarded Case Number:** `{proof_id}`
+#LethalEliminator
 """
 
 bot_gban_string = """
-#DestroyDecomposer
+**User Banned Alert**
 **Enforcer:** `{enforcer}`
 **Target User:** `{scam}`
 **Reason:** `{reason}`
+#DestroyDecomposer
 """
-
-# https://psychopass.fandom.com/wiki/Crime_Coefficient_(Index)
-# https://psychopass.fandom.com/wiki/The_Dominator

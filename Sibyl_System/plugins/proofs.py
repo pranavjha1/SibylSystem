@@ -1,8 +1,10 @@
-from Sibyl_System import System, system_cmd
+from Sibyl_System import System, system_cmd, session
 from telethon import events
 from Sibyl_System import INSPECTORS, Sibyl_logs
 import Sibyl_System.plugins.Mongo_DB.gbans as db
+from Sibyl_System.strings import proof_string
 import asyncio
+import re
 
 async def make_proof(event, proof_id):
         proof = await System.get_messages(Sibyl_logs, ids=proof_id)

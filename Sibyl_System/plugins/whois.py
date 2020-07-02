@@ -19,13 +19,16 @@ async def whois(event):
         try: 
             data = await System(GetFullUserRequest(to_get))
         except Exception:
-            await event.reply('Failed to get data of the user')
+            await event.reply('F, I don\'t know about that user.')
             return 
         await System.send_message(event.chat_id, f"Perma Link: [{data.user.first_name}](tg://user?id={data.user.id})\nUser ID: `{data.user.id}`\nAbout: {data.about}")
 
 
-help_plus = """ Here is Help for **Whois** -
+help_plus = """
+**Help for User Lookup**
+
 `whois` - get data of the user
+
 **Notes:**
 `/` `?` `.` `!` are supported prefixes.
 **Example:** `/addenf` or `?addenf` or `.addenf`

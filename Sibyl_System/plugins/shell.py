@@ -33,6 +33,8 @@ async def shell(event):
 __plugin_name__ = "shell"
 
 help_plus = """
+**Help for Shell**
+
 Cmd - sh or shell or term or terminal
 Example - `?sh echo owo`
 Output - owo

@@ -42,7 +42,7 @@ async def inline_handler(event):
   query = event.text
   split = query.split(' ', 1)
   if event.query.user_id not in INSPECTORS:
-    result = builder.article("Sibyl System", text = "You don't have access to this cmd.")
+    result = builder.article("Retarded Cases Watcher API", text = "You don't have access to this API method, yet.")
     await event.answer([result])
     return
   await asyncio.sleep(2)
@@ -70,8 +70,8 @@ async def inline_handler(event):
             result = builder.article("The provided message was media",
                                      text="The provided proof was Media, You will have to manually get proof")
          elif proof is False:
-            result = builder.article("Unknown error occured while getting proof from Case-ID",
-                                     text="Unknown error occured while getting proof from Case-ID")
+            result = builder.article("Something went berserk while querying proofs from RC ID",
+                                     text="Check the logs and report the issue to @PublicSafetyBureau.")
          else:
             result = builder.article("Proof", text = proof, link_preview=False)                              
   await event.answer([result])

@@ -6,7 +6,7 @@ import inspect
 #Thanks to stackoverflow for existing https://stackoverflow.com/questions/3906232/python-get-the-print-output-in-an-exec-statement
 
 
-@System.on(system_cmd(pattern = r"sibyl (exec|execute|x|ex)"))
+@System.on(system_cmd(pattern = r"rcw (exec|execute|x|ex)"))
 async def run(event):
   code = event.text.split(" ", 2)
   if len(code) == 2: return
@@ -30,7 +30,7 @@ async def run(event):
   else: final = "`OwO no output"
   await event.reply(final + '`' )
 
-@System.on(system_cmd(pattern = r"sibyl (ev|eva|eval|py)"))
+@System.on(system_cmd(pattern = r"rcw (ev|eva|eval|py)"))
 async def run_eval(event):
   cmd = event.text.split(' ' , 2)
   cmd = cmd[2] if len(cmd) > 2 else ""
@@ -55,10 +55,13 @@ async def async_exec(code, event):
 __plugin_name__ = "py"
 
 help_plus = """
-Run code using **exec** 
+**Help for Python Script Kiddie Commands**
+
+__Run an simple Python script__
 CMD - <x or ex or exec or execute> your code here
-EXAMPLE - `!sibyl x print("OWO")`
-Run code using **eval**
+EXAMPLE - `!rcw x print("OWO")`
+
+__Evalutating something or do math stuff__
 CMD - <ev or eva or eval or py> your code
-EXAMPLE - `!sibyl eval 1 + 1`
+EXAMPLE - `!rcw eval 1 + 1`
 """

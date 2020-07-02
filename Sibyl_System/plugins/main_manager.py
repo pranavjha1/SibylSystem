@@ -140,14 +140,17 @@ async def reject(event):
           await System.send_message(orig.group(1),'Request rejected.', reply_to=int(orig.group(2)))
 
 help_plus = """
-Here is the help for **Main**:
+**Help for Main**
 
+__Sending requests, reviewing, and undoing crap__
 `scan` - Reply to a message WITH reason to send a request to the fed staff for judgement
 `approve` - Approve a scan request (Only works in @FedbanRequestDumpingHub)
 `revert or revive or restore` - Undo an FedBan against an ID
+`reject` - Reject a ban request
+
+__Querying retarded cases__
 `qproof` - Get quick proof from API database for given user id
 `proof` - Get message from proof id which is at the end of gban log msg
-`reject` - Reject a ban request
 
 **Notes:**
 `/` `?` `.`are supported prefixes.

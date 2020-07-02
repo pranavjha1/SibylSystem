@@ -31,7 +31,7 @@ async def addenf(event) -> None:
         except BaseException:
            await event.reply("No U, I haven't interacted with that user!")
     if u_id in ENFORCERS:
-        await System.send_message(event.chat_id, 'That person is already an Enforcer/Fed Admins!')
+        await System.send_message(event.chat_id, 'That person is already an Enforcer/Fed Admin!')
         return
     if HEROKU:
         config['ENFORCERS'] = os.environ.get('ENFORCERS') + ' ' + str(u_id)
@@ -187,10 +187,10 @@ async def leave(event) -> None:
     c_id = re.match(r'-(\d+)', link)
     if c_id:
         await System(LeaveChannelRequest(int(c_id.group(0))))
-        await System.send_message(event.chat_id, f"Sibyl has left chat with id[-{c_id.group(1)}]")
+        await System.send_message(event.chat_id, f"Retarded Cases Watcher has left chat with id[-{c_id.group(1)}]")
     else:
         await System(LeaveChannelRequest(link))
-        await System.send_message(event.chat_id, f"Sibyl has left chat[{link}]")
+        await System.send_message(event.chat_id, f"Retarded Cases Watcher has left chat[{link}]")
 
 
 @System.on(system_cmd(pattern=r'get_redirect ', allow_inspectors = True))
@@ -207,7 +207,9 @@ async def redirect(event) -> None:
 
 
 help_plus = """
-Help!
+**Help for Extras**
+
+__Managing enforcers and inspectors__
 `addenf` - Adds a user as an enforcer.
 Format : addenf <user id / as reply >
 `rmenf` - Removes a user from enforcers.
@@ -218,12 +220,18 @@ Format : addins <user id / as reply >
 `rmins` - Removes a user from Inspector.
 Format : rmins <user id/ as reply>
 `inspector` - Lists all Inspector.
+
+__Managing chats__
 `join` - Joins a chat.
 Format : Joins < chat username or invite link >
 `leave` - Leaves a chat.
 Format : Leaves < chat username or id >
+
+__Resolvers__
 `resolve` - owo
 `get_redirect` - get redirect of a link
+
+
 **Notes:**
 `/` `?` `.` `!` are supported prefixes.
 **Example:** `/addenf` or `?addenf` or `.addenf`

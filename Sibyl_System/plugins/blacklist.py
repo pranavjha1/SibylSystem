@@ -144,15 +144,20 @@ async def get(event):
 __plugin_name__ = "blacklist"
 
 help_plus = """
-Here is help for **String Blacklist**
+**Help for String Blacklists**
+
+__Managing blacklists__
 `/addbl` - **Add trigger to blacklist**
 `/rmbl` - **remove trigger from blacklist**
-`/listbl` - **list blacklisted words**
 Here is help for **Welcome Name-String Blacklist**
 `/addwlcbl` - **Add new blacklisted name-string**
 `/rmwlcbl` - **Remove blacklisted welcome-name-string**
 Flags( -e // escape text ) to addbl & addwlcbl
-`/get` - **Get Match from yxy **
+
+__Querying Stuff__
+`/get` - **Get Match from yxy**
+`/listbl` - **list blacklisted words**
+
 **Notes:**
 `/` `?` `.` `!` are supported prefixes.
 **Example:** `/addbl` or `?addbl` or `.addbl`

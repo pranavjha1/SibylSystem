@@ -29,10 +29,12 @@ class SibylClient(TelegramClient):
         else:
             logs = self.log
         if not auto:
-            await self.send_message(logs, f"/gban [{target}](tg://user?id={target}) {reason} // By {enforcer} | #{msg_id}")
+            # We don't have our own active instance of SpamBlockers, yet.
+            # await self.send_message(logs, f"/gban [{target}](tg://user?id={target}) {reason} // By {enforcer} | #{msg_id}")
             await self.send_message(logs, f"/fban [{target}](tg://user?id={target}) {reason} // By {enforcer} | #{msg_id}")
         else:
-            await self.send_message(logs, f"/gban [{target}](tg://user?id={target}) Auto Gban[${msg_id}] {reason}")
+            # We don't have our own active instance of SpamBlockers, yet.
+            # await self.send_message(logs, f"/gban [{target}](tg://user?id={target}) Auto Gban[${msg_id}] {reason}")
             await self.send_message(logs, f"/fban [{target}](tg://user?id={target}) Auto Gban[${msg_id}] {reason}")
         if bot:
             await self.send_message(Sibyl_approved_logs, bot_gban_string.format(enforcer=enforcer, scam=target, reason = reason))
@@ -48,7 +50,8 @@ class SibylClient(TelegramClient):
             logs = self.gban_logs
         else:
             logs = self.log
-        await self.send_message(logs, f'/ungban [{target}](tg://user?id={target}) {reason}')
+        # We don't have our own active instance of SpamBlockers, yet.
+        # await self.send_message(logs, f'/ungban [{target}](tg://user?id={target}) {reason}')
         await self.send_message(logs, f'/unfban [{target}](tg://user?id={target}) {reason}')
         if await update_gban(victim = target, add=False): 
             return True

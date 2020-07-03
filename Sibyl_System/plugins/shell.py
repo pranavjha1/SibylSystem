@@ -23,7 +23,7 @@ async def shell(event):
         event.chat.id,
         file,
         force_document = True,
-        caption = "Output was too long, Sending as file",
+        caption = "Output was too long, sending as a file...",
         reply_to = event.message.id
       )
       return

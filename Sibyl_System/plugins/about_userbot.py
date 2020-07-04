@@ -5,10 +5,10 @@ from Sibyl_System.strings import repoMetadata
 async def pullRepoMeta(event):
     await event.reply(repoMetadata)
 
-__plugin_name__ = "repo_metadata"
+__plugin_name__ = "aboutUserbot"
 
 help_plus = """
-**Help for Repo Metadata**
+**Help for About Userbot**
 
 _Getting repo info__
 `repo` -  Get information about the repository.

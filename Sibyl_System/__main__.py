@@ -27,10 +27,10 @@ for load in to_load:
 async def status(event):
          await event.reply(on_string)
 
-@System.on(system_cmd(pattern='sibyl stats'))
+@System.on(system_cmd(pattern='rcw stats'))
 async def stats(event):
-         msg = f"Currently Processing {System.processing} messages."
-         msg += f"\nProcessed {System.processed} messages."
+         msg = f"I'm currently processing {System.processing} messages."
+         msg += f"\nDone processing {System.processed} messages."
          await event.reply(msg)
 
 @System.on(system_cmd(pattern=r'help', allow_slash=False, allow_inspectors = True))
@@ -38,7 +38,7 @@ async def send_help(event):
          try:
             help_for = event.text.split(" ", 1)[1].lower()
          except IndexError:
-            msg = "**Currently available plugins with help**\n"
+            msg = "**Currently available plugins with help**\n\n"
             for x in HELP.keys():
                 msg += f"`{x.capitalize()}`\n"
             await event.reply(msg)

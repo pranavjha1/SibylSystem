@@ -1,1 +1,1 @@
-worker: python3 -m Sibyl_System
+worker: ./rcw-cli start:heroku

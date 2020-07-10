@@ -2,16 +2,14 @@
 
 # Define stuff
 usage() {
-    echo "Usage: ${args[0]} <command> <flags/arguments>"
+    echo "Usage: ./rcw-cli <command> <flags/arguments>"
     echo
     echo "Available commands:"
-    echo "   generate-string-session          Generate an string session to deploy the code to Heroku."
-    echo "   start                            Checks for configuration, then launch the userbot"
-    echo "   help                             Show this help message."
-    echo "   docs                             Get the link to the documentation."
-    echo
-    echo "Available global flags:"
-    echo "   -h, --help                       Show help message."
+    echo "   generate-string-session      Generate an string session to deploy the code to Heroku."
+    echo "   start                        Checks for configuration, then launch the userbot"
+    echo "   start:heroku                 Checks for any cofnig vars, then launch the userbot. Recommended for Heroku users."
+    echo "   help                         Show this help message."
+    echo "   docs                         Get the link to the documentation."
 }
 
 if [[ $1 == "generate-string-session" ]]
@@ -22,12 +20,28 @@ elif [[ $1 == "start" ]]
 then
     echo "[INFO] Starting up..."
     python3 -m Sibyl_System
-elif [[ $1 == "start" && $2 == "--heroku" ]]
+elif [[ $1 == "start:heroku" ]]
 then
     echo "[INFO] Checking your configuration..."
+    sleep 5
     if [[ $ENV == "True" || $ENV == "ANYTHING" ]]
     then
         echo "[INFO] Using config vars instead of config file, verifying config..."
+        sleep 5
+        if [[ $STRING_SESSION == "" ]]
+        then
+            echo "error:    Your string session is blank."
+            echo "error:    Please generate one with the 'generate-string-session' command."
+            exit 1
+        fi
+        echo "[INFO] Starting up in 3..."
+        sleep 1
+        echo "[INFO] Starting up in 2..."
+        sleep 1
+        echo "[INFO] Starting up in 1..."
+        sleep 1
+        echo "[INFO] Starting up, REEEEEEEEEEE..."
+        python3 -m Sibyl_System
     else
         echo "error:    Cannot start the bot without required vars: ENV"
         echo "error:    To continue, set it to 'True' or 'ANYTHING'."

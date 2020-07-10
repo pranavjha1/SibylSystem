@@ -1,0 +1,54 @@
+#!/bin/bash
+
+# Define stuff
+usage() {
+    echo "Usage: ${args[0]} <command> <flags/arguments>"
+    echo
+    echo "Available commands:"
+    echo "   generate-string-session          Generate an string session to deploy the code to Heroku."
+    echo "   start                            Checks for configuration, then launch the userbot"
+    echo "   help                             Show this help message."
+    echo "   docs                             Get the link to the documentation."
+    echo
+    echo "Available global flags:"
+    echo "   -h, --help                       Show help message."
+}
+
+if [[ $1 == "generate-string-session" ]]
+then
+    echo "[INFO] Opening the script..."
+    python3 stringSessionGenerator.py
+elif [[ $1 == "start" ]]
+then
+    echo "[INFO] Starting up..."
+    python3 -m Sibyl_System
+elif [[ $1 == "start" && $2 == "--heroku" ]]
+then
+    echo "[INFO] Checking your configuration..."
+    if [[ $ENV == "True" || $ENV == "ANYTHING" ]]
+    then
+        echo "[INFO] Using config vars instead of config file, verifying config..."
+    else
+        echo "error:    Cannot start the bot without required vars: ENV"
+        echo "error:    To continue, set it to 'True' or 'ANYTHING'."
+    fi
+    
+elif [[ $1 == "help" ]]
+then
+    usage
+elif [[ $1 == "-h" ]]
+then
+    usage
+elif [[ $1 == "--help" ]]
+then
+    usage
+elif [[ $1 == "" ]]
+then
+    echo "rcw-cli: Version 0.1.0"
+    echo "rcw-cli: An basic CLI for Retarded Cases Watcher userbot."
+    echo "rcw-cli:"
+    echo "rcw-cli: To learn more how to use me, see the 'help' command."
+else
+    echo "error:    That command doesn't understand by the CLI yet."
+    echo "error:    See '$0 help' for list of available commands."
+fi

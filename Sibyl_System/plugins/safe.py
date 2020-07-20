@@ -9,7 +9,6 @@ async def reboot(event):
     await event.reply('Rebooting the API server, this will not take an hour...')
     await System.disconnect()
     os.execl(sys.executable, sys.executable, *sys.argv)
-    quit()
 
 
 @System.on(system_cmd(pattern = r"rcw shutdown"))

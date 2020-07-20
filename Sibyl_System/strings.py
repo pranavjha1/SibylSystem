@@ -29,6 +29,18 @@ forced_scan_string = """
 $FORCED
 """
 
+autoscan_string = """
+**Susicipious activity found due to RegExp/AI detection**
+
+**Scanned user:** [{event.from_id}](tg://user?id={event.from_id})
+**Reason:** 0x{c}
+**Chat:** {link}
+**Hue Color:** Yellow-green
+**Message:** {event.text}
+
+$AUTOSCAN
+"""
+
 reject_string = """
 **Request rejected**
 **Crime Coefficient:** `Under 100`

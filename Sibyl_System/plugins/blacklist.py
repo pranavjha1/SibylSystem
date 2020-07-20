@@ -1,4 +1,5 @@
 from Sibyl_System import System, SIBYL, ENFORCERS, Sibyl_logs, system_cmd
+from Sibyl_System.strings import autoscan_string
 import re
 import Sibyl_System.plugins.Mongo_DB.message_blacklist as db
 import Sibyl_System.plugins.Mongo_DB.name_blacklist as wlc_collection
@@ -90,7 +91,7 @@ async def auto_gban_request(event):
             if re.search(pattern, text, flags=re.IGNORECASE):
                 c = words.index(word)
                 link = f"t.me/{event.chat.username}/{event.message.id}" if event.chat.username else f"Occurred in Private Chat - {event.chat.title}"
-                logmsg = f"""$AUTOSCAN\n**Scanned user:** [{event.from_id}](tg://user?id={event.from_id})\n**Reason:** 0x{c}\n**Chat:** {link}\n**Hue Color:** Yellow-green\n**Message:** {event.text}"""                     
+                logmsg = autoscan_string                  
                 await System.send_message(Sibyl_logs, logmsg)
                 System.processed += 1
                 System.processing -= 1

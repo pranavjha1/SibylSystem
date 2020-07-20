@@ -73,7 +73,7 @@ async def revive(event):
    except IndexError: return
    a = await event.reply("Reverting bans...")
    await System.ungban(user_id, f" By //{(await event.get_sender()).id}")
-   await a.edit("Revert request sent to @FedbanRequestDumpingHub. This might take longer than usual.")
+   await a.edit("Reverting an ban was recevied on server. This might take longer than usual, depending on how many chats our fed is in.")
 
 
 @System.on(system_cmd(pattern=r'approve', allow_inspectors=True, force_reply = True))
@@ -85,13 +85,13 @@ async def approve(event):
         if auto_match:
             if replied.sender.id == me.id:
                 id = re.search(
-                    r"Scanned user: (\[\w+\]\(tg://user\?id=(\d+)\)|(\d+))",
+                    r"User scanned: (\[\w+\]\(tg://user\?id=(\d+)\)|(\d+))",
                     replied.text).group(2)
                 try:
                      bot = (await System.get_entity(id)).bot
                 except:
                      bot = False
-                reason = re.search('\*\*Reason:\*\* (.*)', replied.text).group(1)
+                reason = re.search('\*\*Request Reason:\*\* (.*)', replied.text).group(1)
                 await System.gban(enforcer=me.id, target=id, reason = reason, msg_id=replied.id, auto=True, bot=bot)
                 return "OwO"
         if match:
@@ -100,7 +100,7 @@ async def approve(event):
             # checks to not gban the Gbanner and find who is who
             if reply == me.id:
                 list = re.findall(r'tg://user\?id=(\d+)', replied.text)
-                reason = re.search(r"(\*\*)?Scan Reason:(\*\*)? (`([^`]*)`|.*)", replied.text)
+                reason = re.search(r"(\*\*)?Reuqest Reason:(\*\*)? (`([^`]*)`|.*)", replied.text)
                 reason = reason.group(4) if reason.group(4) else reason.group(3)
                 if len(list) > 1:
                     id1 = list[0]
@@ -121,7 +121,7 @@ async def approve(event):
                 await System.gban(enforcer, scam, reason, replied.id, sender, bot=bot)
                 orig = re.search(r"t.me/(\w+)/(\d+)", replied.text)
                 if orig:
-                  await System.send_message(orig.group(1), 'User is a target for enforcement action.\nEnforcement Mode: Lethal Eliminator', reply_to = int(orig.group(2)))
+                  await System.send_message(orig.group(1), '**Ban request approved, queued for an fban**\n\nEnforcement Mode: Lethal Eliminator', reply_to = int(orig.group(2)))
 
 @System.on(system_cmd(pattern=r'reject', allow_inspectors = True, force_reply = True))
 async def reject(event):
@@ -143,8 +143,8 @@ help_plus = """
 **Help for Main**
 
 __Sending requests, reviewing, and undoing crap__
-`scan` - Reply to a message WITH reason to send a request to the fed staff for judgement
-`approve` - Approve a scan request (Only works in @FedbanRequestDumpingHub)
+`scan` - Reply to a message WITH reason to send a request to the fed inspectors/staff for review
+`approve` - Approve a ban request (Only works in @FedbanRequestDumpingHub)
 `revert or revive or restore` - Undo an FedBan against an ID
 `reject` - Reject a ban request
 

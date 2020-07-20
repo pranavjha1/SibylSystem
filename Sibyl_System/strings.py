@@ -41,6 +41,17 @@ autoscan_string = """
 $AUTOSCAN
 """
 
+name_blacklist_autoscan_string = """
+**Susicipious activity found due to RegExp/AI detection**
+
+**Scanned user:** [{user.id}](tg://user?id={user.id})
+**Reason:** 1x{c}
+**User joined and blacklisted string in name**
+**Matched String:** {word}
+
+$AUTOSCAN
+"""
+
 reject_string = """
 **Request rejected**
 **Crime Coefficient:** `Under 100`

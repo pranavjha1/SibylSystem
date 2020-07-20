@@ -1,5 +1,5 @@
 from Sibyl_System import System, SIBYL, ENFORCERS, Sibyl_logs, system_cmd
-from Sibyl_System.strings import autoscan_string
+from Sibyl_System.strings import autoscan_string, name_blacklist_autoscan_string
 import re
 import Sibyl_System.plugins.Mongo_DB.message_blacklist as db
 import Sibyl_System.plugins.Mongo_DB.name_blacklist as wlc_collection
@@ -114,7 +114,7 @@ async def auto_wlc_gban(event):
           pattern = r"( |^|[^\w])" + word + r"( |$|[^\w])"
           if re.search(pattern, text, flags=re.IGNORECASE):
              c = words.index(word)
-             logmsg = f"""$AUTOSCAN\n**Scanned user:** [{user.id}](tg://user?id={user.id})\n**Reason:** 1x{c}\n**User joined and blacklisted string in name**\n**Matched String:** {word}\n"""
+             logmsg = name_blacklist_autoscan_string
              await System.send_message(Sibyl_logs, logmsg)
              System.processed += 1
              System.processing -= 1

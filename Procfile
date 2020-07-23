@@ -1,1 +1,1 @@
-worker: ./rcw-cli start:heroku
+worker: ./rcw-cli heroku

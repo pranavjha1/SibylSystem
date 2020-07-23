@@ -6,8 +6,9 @@ usage() {
     echo
     echo "Available commands:"
     echo "   generate-string-session      Generate an string session to deploy the code to Heroku."
-    echo "   start                        Checks for configuration, then launch the userbot"
-    echo "   start:heroku                 Checks for any cofnig vars, then launch the userbot. Recommended for Heroku users."
+    echo "   start                        Checks your configuration on the fly and then starts up.
+    echo "   force-start                  Force start up the userbot without any configuration checks."
+    echo "   heroku                       Checks for any cofnig vars, then launch the userbot. Recommended for Heroku users."
     echo "   help                         Show this help message."
     echo "   docs                         Get the link to the documentation."
 }
@@ -16,11 +17,11 @@ if [[ $1 == "generate-string-session" ]]
 then
     echo "[INFO] Opening the script..."
     python3 stringSessionGenerator.py
-elif [[ $1 == "start" ]]
+elif [[ $1 == "force-start" ]]
 then
     echo "[INFO] Starting up..."
     python3 -m Sibyl_System
-elif [[ $1 == "start:heroku" ]]
+elif [[ $1 == "heroku" ]]
 then
     echo "[INFO] Checking your configuration..."
     sleep 5

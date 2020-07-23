@@ -27,5 +27,10 @@ API key as `HEROKU_PRODUCTION_KEY`.
 | `Sibyl_approved_logs` | Chat ID where approved requests are being logged. | Interger
 | `GBAN_MSG_LOGS` | Chat ID where triggeres `/fban` command. | Interger
 
+## Using the CLI
+
+The `rcw-cli` script is included to help you manage your RCW userbot easily. To get started, type `./rcw-cli help` in terminal
+and press Enter to see possible commands.
+
 ## Credits
 * Original repo where we forked: https://github.com/AnimeKaizoku/SibylSystem

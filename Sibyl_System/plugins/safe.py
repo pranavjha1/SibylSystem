@@ -2,7 +2,7 @@ from Sibyl_System import System, system_cmd
 import os
 import sys
 
-@System.on(system_cmd(pattern = r"rcw reboot"))
+@System.on(system_cmd(pattern = r"ssc reboot"))
 async def reboot(event):
     if event.fwd_from:
         return
@@ -11,7 +11,7 @@ async def reboot(event):
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
-@System.on(system_cmd(pattern = r"rcw shutdown"))
+@System.on(system_cmd(pattern = r"ssc shutdown"))
 async def shutdown(event):
     if event.fwd_from:
         return

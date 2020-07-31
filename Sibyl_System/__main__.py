@@ -28,10 +28,10 @@ for load in to_load:
 async def status(event):
   await event.reply(on_string)
 
-@System.on(system_cmd(pattern='rcw stats'))
+@System.on(system_cmd(pattern='ssc stats'))
 async def stats(event):
-  msg = f"Processed {System.processed} messages since last restart."
-  msg += f"\n{len(await get_gbans()['victim'])} users are gbanned."
+  msg = f"Processed {System.processed} out of {System.processing} messages since last restart."
+  msg += f"\n{len((await get_gbans())['victim'])} users are gbanned."
   await event.reply(msg)
 
 @System.on(system_cmd(pattern=r'help', allow_slash=False, allow_inspectors = True))

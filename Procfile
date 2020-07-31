@@ -1,1 +1,1 @@
-worker: ./rcw-cli heroku
+worker: ./spsmcollector-cli heroku

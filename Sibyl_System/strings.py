@@ -1,11 +1,8 @@
 on_string = """
 **Portable Psychological Diagnosis and Supression System**
 
-Connection successful to the API.
-The **FedBans API Spam Samples Collector** is now active.
-
-_What does it mean?_
-Ban requests are now possible to send using the `?scan` command.
+Connection successfull. `Spam Samples Collector` is now active.
+Ban requests are now possible!
 """
 
 # Make sure not to change these too much
@@ -61,3 +58,16 @@ bot_gban_string = """
 
 # https://psychopass.fandom.com/wiki/Crime_Coefficient_(Index)
 # https://psychopass.fandom.com/wiki/The_Dominator
+
+## Please edit this when you fork me.
+repoMetadata = """
+**Repository Metadata**
+
+__This instance__
+Repository Link: https://gitlab.com/ThePinsTeam-FedSupport/SpamSamplesCollector
+Maintainer: [@AndreiJirohHaliliDev2006](https://github.com/AndreiJirohHaliliDev2006)
+
+__Upstream Repo__
+Upstream repository Link: https://github.com/AnimeKaizoku/SibylSystem
+Maintainers: [Dragsama](https://github.com/Dragsama) & [TsunayoshiSawada](https://github.com/TsunayoshiSaada)
+"""

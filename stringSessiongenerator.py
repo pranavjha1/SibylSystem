@@ -20,3 +20,4 @@ with TelegramClient(StringSession(), APP_ID, API_HASH) as client:
 
 ⚠️ <i>It is forbidden to pass it to third-parties.</i>""".format(session_string)
     client.send_message("me", saved_messages_template, parse_mode="html")
+    print("[INFO] Check your target account's saved messages for the string session. Keep it safe!")

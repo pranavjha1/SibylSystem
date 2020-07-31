@@ -1,21 +1,32 @@
-# Retarded Cases Watcher
-An Telethon userbot that made to fban pajeets on Telegram.
+# Spam Samples Collector
+
+An Telethon userbot that made to collect samples of spam and automating the process
+of triggering `/fban` across Telegram.
 
 ## Getting Started
 
-1. [Fork the repo](https://gitlab.com/RetardedCasesOnTG/RetardedCasesWatcher-TGUserbot/-/forks/new) to the namespace you have access.
+1. [Fork the repo](https://gitlab.com/ThePinsTeam-FedSupport/SpamSamplesCollector/-/forks/new) to the namespace you have access.
 2. Sign in to Heroku, create an new app for your fork then generate an new API token (**Account Settings** -> **Applications**).
-2. Open the **CI/CD Settings**, expand the **Variables** section, then add your app name as `HEROKU_APP_NAME` and your
+3. Open the **CI/CD Settings**, expand the **Variables** section, then add your app name as `HEROKU_APP_NAME` and your
 API key as `HEROKU_PRODUCTION_KEY`.
-3. Before deploying to Heroku, see the detailed configuration list below before editing strings or doing some code edits.
+4. Before deploying to Heroku, see the detailed configuration list below before editing strings or doing some code edits.
+
+### Self-hosting
+
+1. [Fork the repo](https://gitlab.com/ThePinsTeam-FedSupport/SpamSamplesCollector/-/forks/new) to the namespace you have access.
+2. Clone your fork onto your machine.
+3. Copy the `config.sample.py`, edit and save as `config.py`.
+5. Install dependencies.
+4. Depending on your operating system, run `start.sh` or `start.bat`.
 
 ## Configuration
+
 | Environment Variable | Description | Type |
 | --- | --- | --- |
 | `ENV` | To enable env mode. | Boolean |
 | `API_ID_KEY` | Telegram API app ID, generted from <https://my.telegram.org> | Interger |
 | `API_HASH_KEY` | Telegram API app hash, generted from <https://my.telegram.org> | String |
-| `STRING_SESSION` | String session, generated from the `rcw-cli generate-string-session`. | String |
+| `STRING_SESSION` | String session, generated from the `spsmcollector-cli generate-string-session`. | String |
 | `BOT_TOKEN` | Bot API token, generated from BotFather, for inline stuff | String |
 | `HEROKU_API_KEY` | Heroku API key, generated from **Account Settings** -> **Applications**. | String | 
 | `HEROKU_APP_NAME` | Your Heroku app slug. | String |
@@ -29,8 +40,8 @@ API key as `HEROKU_PRODUCTION_KEY`.
 
 ## Using the CLI
 
-The `rcw-cli` script is included to help you manage your RCW userbot easily. To get started, type `./rcw-cli help` in terminal
-and press Enter to see possible commands.
+The `spsmcollector-cli` script is included to help you manage your SSC userbot easily. To get started, type `.spsmcollector-cli help` in terminal and press Enter to see possible commands.
 
 ## Credits
-* Original repo where we forked: https://github.com/AnimeKaizoku/SibylSystem
+
+* Original repo where we forked: <https://github.com/AnimeKaizoku/SibylSystem>.

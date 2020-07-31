@@ -189,10 +189,10 @@ async def leave(event) -> None:
     c_id = re.match(r'-(\d+)', link)
     if c_id:
         await System(LeaveChannelRequest(int(c_id.group(0))))
-        await System.send_message(event.chat_id, f"Retarded Cases Watcher has left chat with id[-{c_id.group(1)}]")
+        await System.send_message(event.chat_id, f"Spam Samples Collector has left the chat with id [-{c_id.group(1)}]")
     else:
         await System(LeaveChannelRequest(link))
-        await System.send_message(event.chat_id, f"Retarded Cases Watcher has left chat[{link}]")
+        await System.send_message(event.chat_id, f"Spam Samples Collector has left the chat [{link}]")
 
 
 @System.on(system_cmd(pattern=r'get_redirect ', allow_inspectors = True))

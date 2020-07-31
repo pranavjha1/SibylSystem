@@ -42,7 +42,7 @@ async def inline_handler(event):
   query = event.text
   split = query.split(' ', 1)
   if event.query.user_id not in INSPECTORS:
-    result = builder.article("Retarded Cases Watcher API", text = "You don't have access to this API method, yet.")
+    result = builder.article("Spam Samples Collector API", text = "You don't have access to this API method, yet.")
     await event.answer([result])
     return
   await asyncio.sleep(2)
@@ -61,16 +61,16 @@ async def inline_handler(event):
          result = builder.article('Quick-Proof', text = result)
   elif query.startswith("proof"):
       if len(split) == 1:
-         result = builder.article("Type Case-ID", text="No Case-ID was provided")
+         result = builder.article("Type Case ID", text="No Case ID was provided")
       else:
          proof = await make_proof(event, int(split[1]))
          if proof == "Invalid":
-            result = builder.article("Invalid  Case-ID", text="Case-ID is Invalid")
+            result = builder.article("Invalid Case ID", text="Case ID is Invalid. Make sure your Case ID is correct.")
          elif proof == "Media":
-            result = builder.article("The provided message was media",
+            result = builder.article("The provided message contains media",
                                      text="The provided proof was Media, You will have to manually get proof")
          elif proof is False:
-            result = builder.article("Something went berserk while querying proofs from RC ID",
+            result = builder.article("Something went berserk while querying proofs from Case ID",
                                      text="Check the logs and report the issue to @PublicSafetyBureau.")
          else:
             result = builder.article("Proof", text = proof, link_preview=False)                              

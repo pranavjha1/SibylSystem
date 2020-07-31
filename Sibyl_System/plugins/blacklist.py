@@ -1,5 +1,4 @@
 from Sibyl_System import System, SIBYL, ENFORCERS, Sibyl_logs, system_cmd
-from Sibyl_System.strings import autoscan_string, name_blacklist_autoscan_string
 import re
 import Sibyl_System.plugins.Mongo_DB.message_blacklist as db
 import Sibyl_System.plugins.Mongo_DB.name_blacklist as wlc_collection
@@ -91,7 +90,7 @@ async def auto_gban_request(event):
             if re.search(pattern, text, flags=re.IGNORECASE):
                 c = words.index(word)
                 link = f"t.me/{event.chat.username}/{event.message.id}" if event.chat.username else f"Occurred in Private Chat - {event.chat.title}"
-                logmsg = autoscan_string                  
+                logmsg = f"""$AUTOSCAN\n**Scanned user:** [{event.from_id}](tg://user?id={event.from_id})\n**Reason:** 0x{c}\n**Chat:** {link}\n**Hue Color:** Yellow-green\n**Message:** {event.text}"""                     
                 await System.send_message(Sibyl_logs, logmsg)
                 System.processed += 1
                 System.processing -= 1
@@ -114,7 +113,7 @@ async def auto_wlc_gban(event):
           pattern = r"( |^|[^\w])" + word + r"( |$|[^\w])"
           if re.search(pattern, text, flags=re.IGNORECASE):
              c = words.index(word)
-             logmsg = name_blacklist_autoscan_string
+             logmsg = f"""$AUTOSCAN\n**Scanned user:** [{user.id}](tg://user?id={user.id})\n**Reason:** 1x{c}\n**User joined and blacklisted string in name**\n**Matched String:** {word}\n"""
              await System.send_message(Sibyl_logs, logmsg)
              System.processed += 1
              System.processing -= 1
@@ -145,20 +144,15 @@ async def get(event):
 __plugin_name__ = "blacklist"
 
 help_plus = """
-**Help for String Blacklists**
-
-__Managing blacklists__
+Here is help for **String Blacklist**
 `/addbl` - **Add trigger to blacklist**
 `/rmbl` - **remove trigger from blacklist**
+`/listbl` - **list blacklisted words**
 Here is help for **Welcome Name-String Blacklist**
 `/addwlcbl` - **Add new blacklisted name-string**
 `/rmwlcbl` - **Remove blacklisted welcome-name-string**
 Flags( -e // escape text ) to addbl & addwlcbl
-
-__Querying Stuff__
-`/get` - **Get Match from yxy**
-`/listbl` - **list blacklisted words**
-
+`/get` - **Get Match from yxy **
 **Notes:**
 `/` `?` `.` `!` are supported prefixes.
 **Example:** `/addbl` or `?addbl` or `.addbl`

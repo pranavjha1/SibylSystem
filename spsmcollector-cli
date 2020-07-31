@@ -2,11 +2,11 @@
 
 # Define stuff
 usage() {
-    echo "Usage: ./rcw-cli <command> <flags/arguments>"
+    echo "Usage: ./spsmcollector-cli <command> <flags/arguments>"
     echo
     echo "Available commands:"
     echo "   generate-string-session      Generate an string session to deploy the code to Heroku."
-    echo "   start                        Checks your configuration on the fly and then starts up.
+    echo "   start                        Checks your configuration on the fly and then starts up."
     echo "   force-start                  Force start up the userbot without any configuration checks."
     echo "   heroku                       Checks for any cofnig vars, then launch the userbot. Recommended for Heroku users."
     echo "   help                         Show this help message."
@@ -42,7 +42,7 @@ then
         echo "[INFO] Starting up in 1..."
         sleep 1
         echo "[INFO] Starting up, REEEEEEEEEEE..."
-        python3 -m Sibyl_System
+        $(which python >/dev/null&&echo python||echo python3) -m Sibyl_System
     else
         echo "error:    Cannot start the bot without required vars: ENV"
         echo "error:    To continue, set it to 'True' or 'ANYTHING'."
@@ -59,10 +59,10 @@ then
     usage
 elif [[ $1 == "" ]]
 then
-    echo "rcw-cli: Version 0.1.0"
-    echo "rcw-cli: An basic CLI for Retarded Cases Watcher userbot."
-    echo "rcw-cli:"
-    echo "rcw-cli: To learn more how to use me, see the 'help' command."
+    echo "spsmcollector-cli: Version 0.2.0"
+    echo "spsmcollector-cli: An basic CLI for Spam Samples Collector userbot."
+    echo "spsmcollector-cli:"
+    echo "spsmcollector-cli: To learn more how to use me, see the 'help' command."
 else
     echo "error:    That command doesn't understand by the CLI yet."
     echo "error:    See '$0 help' for list of available commands."

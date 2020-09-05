@@ -25,7 +25,7 @@ BOT_TOKEN = "YourBotAPITokenHere"
 
 # The MongoDB URL
 # Use the v3.4.x+ URL format. For 3.6.x+, make sure 'dnspython' is installed.
-MONGO_DB_URL = "mongodb://SSCUserbotApiRoot:password@localhost:27017/apiMain?ssl=true&replicaSet=TGUserbot-DB-shard-0&authSource=admin&retryWrites=true&w=majority"
+MONGO_DB_URL = "mongodb://SSCUserbotApiRoot:password@localhost:27017/apiMain?ssl=true&replicaSet=SSC-Userbot-DB-shard-0&authSource=admin&retryWrites=true&w=majority"
 
 # These numbers below are real userids.
 # Replace it with your own userids. Or, remove everything and manually paste userids in JSON format.
@@ -44,6 +44,6 @@ GBAN_MSG_LOGS = -1001411763887
 # Set the variable below to            #
 # "NOT ANYMORE" in order to run this   #
 # userbot without using/going          #
-# to environment variables/ env mode.  #
+# to environment variables/env mode.   #
 ########################################
 IS_THIS_CONFIG_EXAMPLE = "READ THE COMMENTS ON L1-L17 FIRST!"

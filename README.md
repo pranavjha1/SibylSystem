@@ -1,23 +1,29 @@
 # Spam Samples Collector
 
 An Telethon userbot that made to collect samples of spam and automating the process
-of triggering `/fban` across Telegram.
+of triggering `/fban` across Telegram for your bot federation.
 
 ## Getting Started
 
+### GitLab Users
 1. [Fork the repo](https://gitlab.com/ThePinsTeam-FedSupport/SpamSamplesCollector/-/forks/new) to the namespace you have access.
 2. Sign in to Heroku, create an new app for your fork then generate an new API token (**Account Settings** -> **Applications**).
 3. Open the **CI/CD Settings**, expand the **Variables** section, then add your app name as `HEROKU_APP_NAME` and your
 API key as `HEROKU_PRODUCTION_KEY`.
 4. Before deploying to Heroku, see the detailed configuration list below before editing strings or doing some code edits.
 
+### GitHub
+WIP.
+
 ### Self-hosting
+
+Requires Python 3.x and Git during the initial setup. For updating, simply `git pull` (to pull code changes) and `./spsmcollector-cli install --virtualenv` (to update dependencies).
 
 1. [Fork the repo](https://gitlab.com/ThePinsTeam-FedSupport/SpamSamplesCollector/-/forks/new) to the namespace you have access.
 2. Clone your fork onto your machine.
 3. Copy the `config.sample.py`, edit and save as `config.py`.
-5. Install dependencies.
-4. Depending on your operating system, run `start.sh` or `start.bat`.
+4. Install dependencies with `./spsmcollector-cli install --virtualenv`.
+5. Depending on your operating system, run `start.sh` or `start.bat`.
 
 ## Configuration
 
@@ -40,7 +46,11 @@ API key as `HEROKU_PRODUCTION_KEY`.
 
 ## Using the CLI
 
-The `spsmcollector-cli` script is included to help you manage your SSC userbot easily. To get started, type `.spsmcollector-cli help` in terminal and press Enter to see possible commands.
+> Currently, the CLI is only available for Windows users with
+Git Bash installed/WSL enabled and Linux users. We'll be working
+to add native CLI support for Windows users in the future.
+
+The `spsmcollector-cli` script is included to help you manage your SSC userbot easily. To get started, type `./spsmcollector-cli help` in terminal and press Enter to see possible commands.
 
 ## Credits
 

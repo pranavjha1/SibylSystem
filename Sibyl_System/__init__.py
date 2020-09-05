@@ -38,7 +38,11 @@ else:
     Sibyl_approved_logs = Config.Sibyl_approved_logs
     GBAN_MSG_LOGS = Config.GBAN_MSG_LOGS
     BOT_TOKEN = Config.BOT_TOKEN
+    IS_THIS_CONFIG_EXAMPLE = Config.IS_THIS_CONFIG_EXAMPLE
 
+if IS_THIS_CONFIG_EXAMPLE != "NOT ANYMORE":
+    print("error:   Can you check the last line if the value is 'NOT ANYMORE'.")
+    exit(1)
 INSPECTORS.extend(SIBYL)
 ENFORCERS.extend(INSPECTORS)
 

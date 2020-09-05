@@ -20,7 +20,12 @@ then
 elif [[ $1 == "force-start" ]]
 then
     echo "[INFO] Starting up..."
-    python3 -m Sibyl_System
+    if [[ $OS == "Windows_NT" ]]
+    then
+    	python -m Sibyl_System
+    else
+	python3 -m Sibyl_System
+    fi
 elif [[ $1 == "heroku" ]]
 then
     echo "[INFO] Checking your configuration..."
@@ -42,7 +47,7 @@ then
         echo "[INFO] Starting up in 1..."
         sleep 1
         echo "[INFO] Starting up, REEEEEEEEEEE..."
-        $(which python >/dev/null&&echo python||echo python3) -m Sibyl_System
+        $(which python >/dev/null && echo python||echo python3) -m Sibyl_System
     else
         echo "error:    Cannot start the bot without required vars: ENV"
         echo "error:    To continue, set it to 'True' or 'ANYTHING'."

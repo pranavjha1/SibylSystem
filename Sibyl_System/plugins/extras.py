@@ -1,3 +1,4 @@
+from urllib.parse import urlparse, urlunparse
 from telethon.tl.functions.channels import LeaveChannelRequest
 from telethon.tl.functions.channels import JoinChannelRequest
 from telethon.tl.functions.messages import ImportChatInviteRequest
@@ -59,7 +60,7 @@ async def rmenf(event) -> None:
         ENF = os.environ.get('ENFORCERS')
         if ENF.endswith(u_id):
          config['ENFORCERS'] = ENF.strip(' ' + str(u_id))
-        elif ENF.starswith(u_id):
+        elif ENF.startswith(u_id):
          config['ENFORCERS'] = ENF.strip(str(u_id) + ' ')
         else:
          config['ENFORCERS'] = ENF.strip(' ' + str(u_id) + ' ')   
@@ -140,7 +141,7 @@ async def rmins(event) -> None:
         ENF = os.environ.get('INSPECTORS')
         if ENF.endswith(u_id):
          config['INSPECTORS'] = ENF.strip(' ' + str(u_id))
-        elif ENF.starswith(u_id):
+        elif ENF.startswith(u_id):
          config['INSPECTORS'] = ENF.strip(str(u_id) + ' ')
         else:
          config['INSPECTORS'] = ENF.strip(' ' + str(u_id) + ' ')
@@ -201,8 +202,7 @@ async def redirect(event) -> None:
         of = event.text.split(" ", 1)[1]
     except BaseException:
         return
-    if not of.startswith('https://'):
-        of = 'https://' + of
+    of = urlunparse(urlparse(of, 'https'))
     async with session.get(of) as r:
         url = r.url
     await System.send_message(event.chat_id, f'URL: {url}')
@@ -213,26 +213,27 @@ help_plus = """
 
 __Managing enforcers and inspectors__
 `addenf` - Adds a user as an enforcer.
-Format : addenf <user id / as reply >
+Format : addenf <user id / as reply>
 `rmenf` - Removes a user from enforcers.
-Format : rmenf <user id/ as reply>
+Format : rmenf <user id / as reply>
 `enforcers` - Lists all enforcers.
 `addins` - Adds a user as an Inspector.
-Format : addins <user id / as reply >
+Format : addins <user id / as reply>
 `rmins` - Removes a user from Inspector.
-Format : rmins <user id/ as reply>
-`inspector` - Lists all Inspector.
+Format : rmins <user id / as reply>
+`inspector` - Lists all inspectors.
 
 __Managing chats__
 `join` - Joins a chat.
-Format : Joins < chat username or invite link >
+Format : join <chat username or invite link>
 `leave` - Leaves a chat.
-Format : Leaves < chat username or id >
+Format : leave <chat username or id>
 
-__Resolvers__
-`resolve` - owo
-`get_redirect` - get redirect of a link
-
+__Resolvers OwO__
+`resolve` - Resolve a chat invite link.
+Format : resolve <chat invite link>
+`get_redirect` - Follows redirect of a link.
+Format : get_redirect <URL>
 
 **Notes:**
 `/` `?` `.` `!` are supported prefixes.

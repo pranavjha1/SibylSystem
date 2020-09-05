@@ -38,9 +38,8 @@ else:
     Sibyl_approved_logs = Config.Sibyl_approved_logs
     GBAN_MSG_LOGS = Config.GBAN_MSG_LOGS
     BOT_TOKEN = Config.BOT_TOKEN
-    IS_THIS_CONFIG_EXAMPLE = Config.IS_THIS_CONFIG_EXAMPLE
 
-if IS_THIS_CONFIG_EXAMPLE != "NOT ANYMORE":
+if Config.IS_THIS_CONFIG_EXAMPLE != "NOT ANYMORE":
     print("error:   Can you check the last line if the value is 'NOT ANYMORE'.")
     exit(1)
 INSPECTORS.extend(SIBYL)
@@ -76,12 +75,6 @@ async def make_collections() -> str:
         dictw["proof_id"] = []
         await collection.insert_one(dictw)
     return ""
-
-if __name__ == '__main__':
-   loop = asyncio.get_event_loop()
-   loop.run_until_complete(make_collections())
-   System.processing = 0
-   System.processed = 0
 
 def system_cmd(pattern=None, allow_sibyl=True,
                allow_enforcer=False, allow_inspectors = False, allow_slash=True, force_reply = False, **args):

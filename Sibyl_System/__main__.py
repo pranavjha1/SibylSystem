@@ -1,4 +1,4 @@
-from Sibyl_System import System, system_cmd
+from Sibyl_System import System, system_cmd, make_collections
 from Sibyl_System.strings import on_string
 from Sibyl_System.plugins.Mongo_DB.gbans import get_gbans 
 import logging
@@ -30,7 +30,7 @@ async def status(event):
 
 @System.on(system_cmd(pattern='ssc stats'))
 async def stats(event):
-  msg = f"Processed {System.processed} out of {System.processing} messages since last restart."
+  msg = f"Processed {System.processed} messages since last restart."
   msg += f"\n{len((await get_gbans())['victim'])} users are gbanned."
   await event.reply(msg)
 
@@ -51,6 +51,7 @@ async def send_help(event):
 
 
 async def main():
+  await make_collections()
   await System.start()
   await System.catch_up()
   await System.run_until_disconnected()

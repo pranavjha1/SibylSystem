@@ -1,27 +1,28 @@
 on_string = """
-**Portable Psychological Diagnosis and Supression System**
 
-Connection successfull. `Spam Samples Collector` is now active.
-Ban requests are now possible!
+**☑️ Connection successful!**
+
+Welcome {Enforcer} {name}
+You are a valid user!
 """
 
 # Make sure not to change these too much
 # If you still wanna change it change the regex too
 scan_request_string = """
 $SCAN
-Cymatic Scan request
+Cymatic Scan request!
 **Enforcer:** {enforcer} 
 **User scanned:** {spammer}
-**Scan Reason:** `{reason}`
-**Chat Originated from:** {chat}
+**Reason:** `{reason}`
+**Scan Source:** {chat}
 **Target Message:** `{message}`
 """
 forced_scan_string = """
 $FORCED
 **Inspector:** {ins}
-**User scanned:** {spammer}
-**Scan Reason:** `{reason}`
-**Chat Originated from:** {chat}
+**Target:** {spammer}
+**Reason:** `{reason}`
+**Scan Source:** {chat}
 **Target Message:** `{message}`
 """
 

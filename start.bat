@@ -1,3 +1,5 @@
+<<<<<<< HEAD
 @echo off
 TITLE Launch SSC Userbot
-env\scripts\activate.bat && echo "If you run this on startup, please do not close or the bot will be go offline." && python -m Sibyl_System
+:: Enables virtual env mode and then starts Sibyl_System
+env\scripts\activate.bat && py -m Sibyl_System

@@ -1,3 +1,4 @@
+
 """Gets ENV vars or Config vars then calls class."""
 from telethon import events
 import aiohttp
@@ -5,8 +6,13 @@ from telethon.sessions import StringSession
 import os
 from motor import motor_asyncio
 import re
-import asyncio
+import logging
 
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[logging.FileHandler('log.txt'),
+              logging.StreamHandler()],
+    level=logging.INFO)
 
 ENV = bool(os.environ.get('ENV', False))
 if ENV:
@@ -26,7 +32,7 @@ if ENV:
     GBAN_MSG_LOGS = int(os.environ.get('GBAN_MSG_LOGS', None))
     BOT_TOKEN = os.environ.get('BOT_TOKEN')
 else:
-    import config as Config
+    import Sibyl_System.config as Config
     API_ID_KEY = Config.API_ID
     API_HASH_KEY = Config.API_HASH
     STRING_SESSION = Config.STRING_SESSION
@@ -39,9 +45,6 @@ else:
     GBAN_MSG_LOGS = Config.GBAN_MSG_LOGS
     BOT_TOKEN = Config.BOT_TOKEN
 
-if Config.IS_THIS_CONFIG_EXAMPLE != "NOT ANYMORE":
-    print("error:   Can you check the last line if the value is 'NOT ANYMORE'.")
-    exit(1)
 INSPECTORS.extend(SIBYL)
 ENFORCERS.extend(INSPECTORS)
 
@@ -89,5 +92,6 @@ def system_cmd(pattern=None, allow_sibyl=True,
     else:
         args["from_users"] = SIBYL
     if force_reply:
-        args["func"] = lambda e: True if e.message.reply_to_msg_id else False
+        args["func"] = lambda e: e.is_reply
     return events.NewMessage(**args)
+

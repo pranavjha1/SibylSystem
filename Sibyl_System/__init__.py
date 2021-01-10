@@ -1,4 +1,3 @@
-
 """Gets ENV vars or Config vars then calls class."""
 
 from telethon import events
@@ -12,8 +11,10 @@ import logging
 import os
 import re
 
-if os.path.exists('log.txt')
+if os.path.exists('log.txt'):
     os.remove("log.txt")
+else:
+    print("Log file not found, starting app...")
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",

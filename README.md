@@ -5,7 +5,7 @@ of triggering `/fban` across Telegram for your bot federation.
 
 ## Getting Started
 
-### GitLab Users
+### Deploy to Heroku with GitLab CI
 1. [Fork the repo](https://gitlab.com/ThePinsTeam-FedSupport/SpamSamplesCollector/-/forks/new) to the namespace you have access.
 2. Sign in to Heroku, create an new app for your fork then generate an new API token (**Account Settings** -> **Applications**).
 3. Open the **CI/CD Settings**, expand the **Variables** section, then add your app name as `HEROKU_APP_NAME` and your
@@ -22,7 +22,7 @@ Requires Python 3.x and Git during the initial setup. For updating, simply `git 
 1. [Fork the repo](https://gitlab.com/ThePinsTeam-FedSupport/SpamSamplesCollector/-/forks/new) to the namespace you have access.
 2. Clone your fork onto your machine.
 3. Copy the `config.sample.py`, edit and save as `config.py`.
-4. Install dependencies with `./spsmcollector-cli install --virtualenv`.
+4. Install dependencies with using the `bin/bootstrap` script.
 5. Depending on your operating system, run `start.sh` or `start.bat`.
 
 ## Configuration
@@ -37,20 +37,10 @@ Requires Python 3.x and Git during the initial setup. For updating, simply `git 
 | `HEROKU_API_KEY` | Heroku API key, generated from **Account Settings** -> **Applications**. | String | 
 | `HEROKU_APP_NAME` | Your Heroku app slug. | String |
 | `MONGO_DB_URL` | MongoDB URL, must be the 3.4+ URL format. | String |
-| `SIBYL` | ID of Users who have full access to the userbot. | Intergers, speraated by spaces |
-| `INSPECTORS` | ID of users who can force an approval on scans, can manage blacklists, etc. | Intergers, speraated by spaces |
-| `ENFORCERS` | ID of users who can send ban requests. | Intergers, speraated by spaces |
 | `Sibyl_logs` | Chat ID where ban requests are sent. | Interger
 | `Sibyl_approved_logs` | Chat ID where approved requests are being logged. | Interger
 | `GBAN_MSG_LOGS` | Chat ID where triggeres `/fban` command. | Interger
 
-## Using the CLI
-
-> Currently, the CLI is only available for Windows users with
-Git Bash installed/WSL enabled and Linux users. We'll be working
-to add native CLI support for Windows users in the future.
-
-The `spsmcollector-cli` script is included to help you manage your SSC userbot easily. To get started, type `./spsmcollector-cli help` in terminal and press Enter to see possible commands.
 
 ## Credits
 

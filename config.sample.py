@@ -21,7 +21,7 @@
 API_ID = 123456
 API_HASH = "YourApiHashHere"
 STRING_SESSION = "YourSessionStringHere"
-BOT_TOKEN = "YourBotAPITokenHere"
+BOT_TOKEN = "Youroajbsbw"
 
 # The MongoDB URL
 # Use the v3.4.x+ URL format. For 3.6.x+, make sure 'dnspython' is installed.
